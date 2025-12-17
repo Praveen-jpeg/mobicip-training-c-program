@@ -1,3 +1,5 @@
 # Ignore all extensionless files except these
+*
+!*.*
 !README
 !LICENSE
