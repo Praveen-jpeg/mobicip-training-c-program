@@ -1,0 +1,67 @@
+===== TEST 1: Empty input =====
+<EOF>
+Output:
+0 0 0
+
+===== TEST 2: Only spaces =====
+     
+     
+Output:
+1 0 6
+
+===== TEST 3: Only tabs =====
+		
+Output:
+0 0 2
+
+===== TEST 4: Only newlines =====
+
+
+
+Output:
+3 0 3
+
+===== TEST 5: Single word (no newline) =====
+hello
+<EOF>
+Output:
+0 1 5
+
+===== TEST 6: Single word with newline =====
+hello
+Output:
+1 1 6
+
+===== TEST 7: Multiple words, single spaces =====
+one two three
+Output:
+0 3 13
+
+===== TEST 8: Multiple spaces and tabs =====
+one   two		three
+Output:
+0 3 18
+
+===== TEST 9: Words on separate lines =====
+one
+two
+three
+Output:
+3 3 14
+
+===== TEST 10: Leading and trailing spaces =====
+   hello world   
+Output:
+0 2 17
+
+===== TEST 11: Mixed whitespace =====
+	hello   world
+this	is	a	test
+Output:
+1 6 28
+
+===== TEST 12: Long input =====
+word word word word word word word word word word
+word word word word word word word word word word
+Output:
+1 20 99
