@@ -1,5 +1,6 @@
 # Ignore all extensionless files except these
 *
+!*.*
 !*.c
 !*.png
 !README
