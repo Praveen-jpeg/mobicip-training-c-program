@@ -1,7 +1,13 @@
-# Ignore all extensionless files except these
-*
-!*.*
-!*.c
-!*.png
+# Ignore all extensionless files
+**/*      # ignore everything recursively
+
+# Un-ignore files with extensions
+!**/*.*
+
+# Un-ignore specific extensions
+!**/*.c
+!**/*.png
+
+# Un-ignore specific extensionless files
 !README
 !LICENSE
