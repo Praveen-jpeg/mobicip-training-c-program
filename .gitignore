@@ -1,5 +1,5 @@
 # Ignore all extensionless files
-**/*      # ignore everything recursively
+**     # ignore everything recursively
 
 # Un-ignore files with extensions
 !**/*.*
