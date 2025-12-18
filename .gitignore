@@ -1,12 +1,13 @@
-# Ignore all extensionless files
-**     # ignore everything recursively
-
 # Un-ignore files with extensions
 !**/*.*
 
 # Un-ignore specific extensions
 !**/*.c
 !**/*.png
+# Ignore all extensionless files
+**     # ignore everything recursively
+
+
 
 # Un-ignore specific extensionless files
 !README
