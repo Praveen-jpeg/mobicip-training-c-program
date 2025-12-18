@@ -16,6 +16,9 @@ int main(){
     printf("double          :%e to %e\n",DBL_MIN,DBL_MAX);
     printf("long double     :%Le to %Le\n",LDBL_MIN,LDBL_MAX);
 
+    /*The standard headers <limits.h> and <float.h> contain symbolic constants for all of these
+    sizes, along with other properties of the machine and compiler.*/
+    
     //Direct Computation
     unsigned char uc = ~0;
     signed char sc = uc >>1;
