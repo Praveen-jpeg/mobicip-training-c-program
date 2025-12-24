@@ -1,20 +1,29 @@
 #include <stdio.h>
 
 #define BUFSIZE 100
+
+/* Buffer for ungetch */
 char buf[BUFSIZE];
 int bufp = 0;
 
+/* getch: get a character */
 int getch(void)
 {
     return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
+/* ungetch: push one character back */
 void ungetch(int c)
 {
     if (bufp < BUFSIZE)
         buf[bufp++] = c;
 }
 
+/*
+ ungets:
+  - Pushes an entire string back onto input
+  - Characters are pushed in reverse order
+*/
 void ungets(char s[])
 {
     int i;
@@ -34,6 +43,7 @@ int main(void)
 
     ungets(s);
 
+    printf("Reading back: ");
     while ((c = getch()) != EOF)
         putchar(c);
 

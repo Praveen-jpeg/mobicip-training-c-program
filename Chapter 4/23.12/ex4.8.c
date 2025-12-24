@@ -1,7 +1,9 @@
 #include <stdio.h>
 
+/* Single-character pushback buffer */
 int buf = EOF;
 
+/* getch: returns buffered character or reads new one */
 int getch(void)
 {
     int c = (buf != EOF) ? buf : getchar();
@@ -9,6 +11,7 @@ int getch(void)
     return c;
 }
 
+/* ungetch: allows only one character */
 void ungetch(int c)
 {
     buf = c;

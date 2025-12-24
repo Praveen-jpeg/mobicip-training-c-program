@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/*
+ getline:
+  - Reads an entire line into array s
+  - Returns length of the line
+*/
 int getline(char s[], int lim)
 {
     int c, i;
@@ -20,8 +25,9 @@ int main(void)
     printf("Enter two numbers: ");
     getline(line, 100);
 
+    /* Extract numbers from input line */
     sscanf(line, "%lf %lf", &x, &y);
-    printf("Sum = %g\n", x + y);
 
+    printf("Sum = %g\n", x + y);
     return 0;
 }

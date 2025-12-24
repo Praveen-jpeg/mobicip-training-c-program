@@ -1,9 +1,14 @@
 #include <stdio.h>
 
+/*
+ Exercise 4-6:
+  - Provides 26 variables (A-Z)
+  - Stores the most recently assigned value
+*/
 int main(void)
 {
-    double vars[26] = {0};
-    double last = 0;
+    double vars[26] = {0};  /* variables A-Z */
+    double last = 0;        /* last stored value */
     char name;
     double value;
 

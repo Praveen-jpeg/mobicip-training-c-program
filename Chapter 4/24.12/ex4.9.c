@@ -1,7 +1,9 @@
 #include <stdio.h>
 
+/* Buffer that can also store EOF */
 int buf = EOF;
 
+/* getch: handles pushed-back EOF correctly */
 int getch(void)
 {
     if (buf != EOF) {
@@ -12,6 +14,7 @@ int getch(void)
     return getchar();
 }
 
+/* ungetch: push back character or EOF */
 void ungetch(int c)
 {
     buf = c;
