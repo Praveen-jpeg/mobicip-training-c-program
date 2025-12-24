@@ -5,7 +5,7 @@
   - Reads an entire line into array s
   - Returns length of the line
 */
-int getline(char s[], int lim)
+int my_getline(char s[], int lim)
 {
     int c, i;
 
@@ -23,7 +23,7 @@ int main(void)
     double x, y;
 
     printf("Enter two numbers: ");
-    getline(line, 100);
+    my_getline(line, 100);
 
     /* Extract numbers from input line */
     sscanf(line, "%lf %lf", &x, &y);

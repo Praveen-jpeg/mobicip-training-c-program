@@ -1,7 +1,12 @@
 #include <stdio.h>
 
 /* swap: interchange x and y of type t */
-#define swap(t, x, y)      do {                       t temp = (x);          (x) = (y);             (y) = temp;        } while (0)
+#define swap(t, x, y)           \
+    do {                        \
+        t temp = (x);           \
+        (x) = (y);              \
+        (y) = temp;             \
+    } while (0)
 
 int main(void)
 {
