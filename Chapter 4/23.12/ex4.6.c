@@ -2,7 +2,8 @@
 
 int main(void)
 {
-    double vars[26] = {0}, last = 0;
+    double vars[26] = {0};
+    double last = 0;
     char name;
     double value;
 
@@ -13,6 +14,6 @@ int main(void)
     last = value;
 
     printf("%c = %.2f\n", name, vars[name - 'A']);
-    printf("Last = %.2f\n", last);
+    printf("Last value = %.2f\n", last);
     return 0;
 }

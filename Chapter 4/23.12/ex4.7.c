@@ -4,8 +4,16 @@
 char buf[BUFSIZE];
 int bufp = 0;
 
-int getch(void) { return (bufp > 0) ? buf[--bufp] : getchar(); }
-void ungetch(int c) { if (bufp < BUFSIZE) buf[bufp++] = c; }
+int getch(void)
+{
+    return (bufp > 0) ? buf[--bufp] : getchar();
+}
+
+void ungetch(int c)
+{
+    if (bufp < BUFSIZE)
+        buf[bufp++] = c;
+}
 
 void ungets(char s[])
 {
@@ -20,11 +28,14 @@ int main(void)
 {
     char s[50];
     int c;
+
     printf("Enter string: ");
     scanf("%s", s);
+
     ungets(s);
-    printf("Read back: ");
+
     while ((c = getch()) != EOF)
         putchar(c);
+
     return 0;
 }

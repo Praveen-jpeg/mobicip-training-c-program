@@ -9,7 +9,10 @@ int getch(void)
     return c;
 }
 
-void ungetch(int c) { buf = c; }
+void ungetch(int c)
+{
+    buf = c;
+}
 
 int main(void)
 {

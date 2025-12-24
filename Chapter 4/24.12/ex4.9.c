@@ -12,7 +12,10 @@ int getch(void)
     return getchar();
 }
 
-void ungetch(int c) { buf = c; }
+void ungetch(int c)
+{
+    buf = c;
+}
 
 int main(void)
 {
