@@ -4,7 +4,7 @@
 #define MAXLEN   1000
 
 /* getline: read a line into s */
-int getline(char s[], int lim)
+int my_getline(char s[], int lim)
 {
     int c, i;
     for (i = 0; i < lim-1 && (c = getchar()) != EOF && c != '\n'; i++)
@@ -16,10 +16,10 @@ int getline(char s[], int lim)
 }
 
 /* readlines: store lines in array supplied by main */
-int readlines(char lines[][MAXLEN], int maxlines)
+int my_readlines(char lines[][MAXLEN], int maxlines)
 {
     int nlines = 0;
-    while (getline(lines[nlines], MAXLEN) > 0) {
+    while (my_getline(lines[nlines], MAXLEN) > 0) {
         if (nlines >= maxlines)
             return -1;
         nlines++;
@@ -32,7 +32,7 @@ int main(void)
     char lines[MAXLINES][MAXLEN];
     int nlines, i;
 
-    nlines = readlines(lines, MAXLINES);
+    nlines = my_readlines(lines, MAXLINES);
     for (i = 0; i < nlines; i++)
         printf("%s", lines[i]);
 
