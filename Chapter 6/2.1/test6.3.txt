@@ -1,0 +1,5 @@
+This is a simple test.
+This test is only a Test.
+The program should list the words
+and show the line numbers
+where each word appears.
