@@ -17,9 +17,9 @@ static struct nlist *hashtab[HASHSIZE];
 /* hash function */
 unsigned hash(char *s)
 {
-    unsigned hashval;
-    for (hashval = 0; *s != '\0'; s++)
-        hashval = *s + 31 *hashval;
+    unsigned hashval = 0;
+    while (*s)
+        hashval = *s++ + 31 * hashval;
     return hashval % HASHSIZE;
 }
 
@@ -45,14 +45,15 @@ struct nlist *install(char *name, char *defn)
         h = hash(name);
         np->next = hashtab[h];
         hashtab[h] = np;
-    } else
+    } else {
         free(np->defn);
+    }
 
     np->defn = strdup(defn);
     return np;
 }
 
-/* getword: return word or single character */
+/* getword: returns words, single chars, or whitespace */
 int getword(char *word, int lim)
 {
     int c;
@@ -62,9 +63,16 @@ int getword(char *word, int lim)
     if (c == EOF)
         return EOF;
 
+    /* preserve whitespace */
+    if (isspace(c)) {
+        *w++ = c;
+        *w = '\0';
+        return c;
+    }
+
     if (!isalpha(c) && c != '_') {
-        *w = c;
-        *(w + 1) = '\0';
+        *w++ = c;
+        *w = '\0';
         return c;
     }
 
@@ -79,35 +87,56 @@ int getword(char *word, int lim)
     return word[0];
 }
 
-/* main: formatted macro processor */
+/* get next non-whitespace token */
+int getword_nows(char *word, int lim)
+{
+    int c;
+    do {
+        c = getword(word, lim);
+    } while (isspace(word[0]));
+    return c;
+}
+
+/* main: macro processor */
 int main(void)
 {
     char word[MAXWORD];
-    char name[MAXWORD], defn[MAXWORD];
+    char name[MAXWORD];
+    char defn[MAXWORD];
     struct nlist *np;
 
     while (getword(word, MAXWORD) != EOF) {
 
         /* handle #define */
         if (strcmp(word, "#") == 0) {
-            getword(word, MAXWORD);        /* define */
+            getword_nows(word, MAXWORD);   /* should be "define" */
+
             if (strcmp(word, "define") == 0) {
-                getword(name, MAXWORD);
-                getword(defn, MAXWORD);
+                getword_nows(name, MAXWORD);  /* macro name */
+
+                /* read rest of line as definition */
+                int i = 0, c;
+                while ((c = getchar()) != '\n' && c != EOF && i < MAXWORD - 1)
+                    defn[i++] = c;
+                defn[i] = '\0';
+
                 install(name, defn);
             }
+            continue;   /* suppress #define output */
         }
+
         /* identifier */
-        else if (isalpha(word[0]) || word[0] == '_') {
+        if (isalpha(word[0]) || word[0] == '_') {
             if ((np = lookup(word)) != NULL)
                 printf("%s", np->defn);
             else
                 printf("%s", word);
         }
-        /* any other character */
+        /* anything else (including whitespace) */
         else {
             printf("%s", word);
         }
     }
+
     return 0;
 }
