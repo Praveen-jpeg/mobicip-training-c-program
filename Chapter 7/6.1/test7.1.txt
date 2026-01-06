@@ -1,0 +1,5 @@
+Hello World!
+This Is A Mixed CASE Line.
+c Programming Language
+This is PrAVeeN v
+InTerN aT moBIcIp APpREndEr
