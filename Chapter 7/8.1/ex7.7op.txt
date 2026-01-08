@@ -1,0 +1,5 @@
+#Test case 1
+f1.txt: pattern here
+#Test case 2
+f1.txt: pattern here
+f2.txt: pattern again

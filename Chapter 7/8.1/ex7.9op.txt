@@ -1,0 +1,11 @@
+Enter characters, EOF to stop:
+Character 'd' (100): space=0, time=0, macro=0
+Character 'a' (97): space=0, time=0, macro=0
+Character 'D' (68): space=1, time=1, macro=1
+Character 'S' (83): space=1, time=1, macro=1
+Character 'F' (70): space=1, time=1, macro=1
+Character 'h' (104): space=0, time=0, macro=0
+Character 'e' (101): space=0, time=0, macro=0
+Character 'L' (76): space=1, time=1, macro=1
+Character 'L' (76): space=1, time=1, macro=1
+Character 'o' (111): space=0, time=0, macro=0
